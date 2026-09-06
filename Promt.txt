@@ -1,0 +1,58 @@
+Prompt para Desarrollo de E-commerce CMS con Google Sheets
+Contexto y Rol
+Actúa como un Desarrollador Full Stack Senior experto en Next.js (App Router) y en el uso de la API de Google Sheets (google-spreadsheet o googleapis) como base de datos principal. Tu objetivo es desarrollar un E-commerce tipo CMS (Sistema de Gestión de Contenidos).
+Nota: quiero que la web sea responsiva y tenga PWA.
+El sistema no debe tener información fija en el código. El administrador debe poder configurar y personalizar la tienda por completo desde un panel de control, y toda esta información, así como los productos y pedidos, se leerá y escribirá exclusivamente en un documento de Google Sheets.
+
+Configuración de la Base de Datos (Google Sheets)
+El proyecto se conectará usando credenciales de cuenta de servicio mediante las siguientes variables de entorno:
+
+Fragmento de código
+GOOGLE_SERVICE_ACCOUNT_EMAIL=tareas@deft-seat-507201-m3.iam.gserviceaccount.com
+GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDaOJzdgB4dn5f5\nGk757mN8umv+bcYA9MTz7BQ2iVcmOl4p3VHnrZujlk0mpjSA65lDgu9NnijGIJ+P\n+mvR9jFHBgN0usnkvp8LxDByI5o+bBUTJ19mOe99yWY5Ob1pOXTJe3iRM1DCfXs0\ndVtLoGEYgb9COaBu3r/6fGkHj0neiXLMOYRS2oY2Z/sg6Pi6ax9wt/Sg/uVSlLU2\nf8RYiKKz8yOn7qahrTQZAM8WbVoKpjODz8c/qLauULUYqQRWZU4kFIuGAPvvB8AK\n27eMbujbqlLoF5k8o7e98Qd5YZSTZXOkUpRhdTx3HObsg+c5v72eQgkeLwfaGdJH\n2k4brgF5AgMBAAECggEAFiQ6oVxdoeSWsU0msIQMRuRs7vnBJolvXu8IHYD5rVys\nf3uv8u2J7lMipJ5mUyLkkAWt5X6b1T+L5RpT/I+p8BKHgP1vXQTs4w8e2cPsQ3No\nv4LmEnukJcuMsld+FRpB8+wR34y4/+Tmvnu+Xcnp9Cg9CVmKwlkaWk5rgzt6E6jH\nXOswNiS9dKWgz2RwgFx6sXlc9qid8b/XA6oopwp6pwwFiD8nfFuVVy9vOsINinCq\nlSFDRqpfwz5UqsEe3jm/p5MlUUQRuMKDIUFFxa0laN6DZs7bTrr6aXEMXsqE4XJt\nPzUthW8ol7ZC8rxX0umlcD/71FTiHIlf67ZW2EjpoQKBgQDsyP3mflnIS8PBpFJo\nKtHvBV0ecKy9g4jstLtg5f+YTHku17Bsw8wqQZl2QdI8dthBMwFIGOLlqcY6LHax\n7Vp80GAwKTE5k4Fzy4it+0JxXz9Tuv8R+bAgpo+rXsnyf7ksu/V0ZahGGaVIhfdl\n4Nyk/21vIRCGfidblSveTCzpYQKBgQDr7fhcDqWhD8FsJR1twGkKOxDnIwfzXpTL\nMmGuRpu+UN8Bu9ieqisQMWSMrPX/sDy5j/laleW9PokC1BD1VPc1FUl61WXTlR+n\n28VvMfraeXYbiru2wDMt5cMfxf8OqvDNL1kd+jSlrWtthuZ+NZmB44KD2YJzCnTF\n1nXhYYOXGQKBgHpSWtf37enLOhWPDgNCG7Ge07wl+RbuHI4rz6D/MEs9Nl08j6eg\nfphVyzGMT09tFcqYztCwCocabY0f6zF/rH9OJmK65PMZgIaRXsqCQpDO46gdsidX\nFeXIJfAhx7G+yaqSbvryiTutg/UzP9shjtquGZqPOjpAcZSeO0tbjtgBAoGBAInE\nKvuufd8f8SVyQs38xhl4RjWCCjl9qEtDPzDiAD3QwXgktaho276X6QwQT5Gf2sXM\noaHY2A96vczOAp0PoU75ADBe/hfgA10kgxScTcxXkrUgfN6JOxl5Cki6eGabQQO/\nuz07BpUcQBfz5xIZwGrNbEALuhXtLCT+R1V1eL65AoGBAIf97geC6MUg8aO2Rzwv\n2mvm4vFQ7HN2BgKKyWzNcFpDTwAoPSYy1n0TowY4zEELwnyKWasxvqyQFAzBv+z5\ndbzpsEdtHV7Hvjx8ThFhUWZlz3OYtWXuDz1S3CUdF2hb2KNGwrx5PCDzfv3+4tnl\nD51DGcHiomoWQX3gPEAGc904\n-----END PRIVATE KEY-----\n"
+GOOGLE_SHEET_ID=1FwCru8OWwdLduGpefO_23OhQ4uXHg3Dkpbl53nv3pu8
+Estructura de la Base de Datos (Pestañas y Columnas del Sheet)
+El archivo de Google Sheets tendrá las siguientes pestañas (hojas), donde la primera fila siempre será el encabezado:
+
+Hoja Configuracion: Funcionará con formato clave-valor.
+
+Columnas: Clave, Valor
+
+Ejemplo de Claves: NombreTienda, ColorPrimario, ColorSecundario, TasaDolar, TelefonoContacto, TextoNosotros.
+
+Hoja Productos:
+
+Columnas: ID, Nombre, Descripcion, Precio_USD, Imagen_URL, Categoria, Stock, Estado (Activo/Oculto).
+
+Hoja Pedidos:
+
+Columnas: ID_Pedido, Fecha, Nombre_Cliente, Telefono_Cliente, Metodo_Envio, Metodo_Pago, Referencia_Pago, Total_USD, Total_Bs, Estado_Pedido (Pendiente/Pagado/Enviado), Productos_Carrito (Aquí se guardará un string en formato JSON con los productos comprados para evitar tablas relacionales complejas).
+
+Hoja Envios:
+
+Columnas: ID_Envio, Nombre_Empresa (MRW, Zoom, Tealca, Delivery), Tarifa_USD, Estado (Activo/Inactivo).
+
+Características del Backend (Panel de Administración - El CMS)
+Este panel (protegido con usuario/contraseña usando JWT o NextAuth) debe permitir operaciones CRUD directamente sobre las hojas de cálculo:
+
+Configuración: Actualizar las filas de la hoja Configuracion (ej. cambiar los colores de la web o la tasa del dólar).
+
+Gestión de Inventario: Agregar, editar o eliminar filas en la hoja Productos.
+
+Gestión de Ventas: Leer la hoja Pedidos para revisar compras, verificar números de referencia de Pago Móvil y cambiar la columna Estado_Pedido.
+
+Características del Frontend (La Vitrina Pública)
+
+Diseño Dinámico: Los estilos (Tailwind CSS) deben adaptarse leyendo ColorPrimario y ColorSecundario desde la hoja Configuracion.
+
+Catálogo y Carrito: Cuadrícula de productos mapeada desde la hoja Productos. Precios en Bs calculados dinámicamente multiplicando el Precio_USD por la TasaDolar obtenida de la hoja Configuracion.
+
+Checkout Adaptado: Formulario para procesar el carrito, solicitar datos del cliente, método de pago (Pago Móvil) y referencia. Al enviar, se debe crear una nueva fila en la hoja Pedidos con los datos y el carrito convertido a JSON en la columna Productos_Carrito.
+
+Instrucciones de Entrega
+
+Proporciona el archivo de utilidad o servicio (ej. lib/googleSheets.js o .ts) para inicializar la conexión con Google Sheets usando las variables de entorno.
+
+Define la estructura de carpetas en Next.js separando la app pública (/) del panel de administración (/admin).
+
+Muestra el código de la función para obtener los productos (GET) y la función para crear un nuevo pedido (POST) escribiendo en la hoja correspondiente.

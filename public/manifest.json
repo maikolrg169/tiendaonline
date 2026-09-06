@@ -1,0 +1,20 @@
+{
+  "short_name": "TiendaCMS",
+  "name": "Tienda Online CMS",
+  "icons": [
+    {
+      "src": "/pwa/chrome-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa/apple-logo.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}
