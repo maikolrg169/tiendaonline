@@ -28,6 +28,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 import { ThemeProvider } from "./components/theme-provider";
 
+export const revalidate = 0; // Ensure dynamic metadata fetching
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -35,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <body className="min-h-full flex flex-col bg-gray-50 text-slate-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
         <ThemeProvider>
           {children}
         </ThemeProvider>

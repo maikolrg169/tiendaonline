@@ -54,6 +54,11 @@ export default function AdminLogin() {
           >
             Ingresar
           </button>
+          <div className="mt-4 text-center">
+            <a href="/" className="text-white/60 hover:text-white text-sm transition-colors">
+              &larr; Volver a la tienda
+            </a>
+          </div>
         </form>
       </div>
     </div>
